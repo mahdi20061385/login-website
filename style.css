@@ -1,200 +1,97 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-@keyframes move {
-    0% {
-        left: 200px;
-    }
-    50% {
-        left: 1060px;
-    } 
-    100% {
-        left: 200px;
-    }
-}
+/* فایل style.css - نسخه بهینه‌سازی شده برای موبایل */
 body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
-    background: linear-gradient(to right top, #148af6, #c8e0f9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-.login-box {
-    width: 868px;
-    height: 494px;
-    background:  linear-gradient(to right, #1f6ce9e3 60%, rgba(255, 255, 255, 0.817) 40%);
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-}
-.shadow {
-    width: 800px;
-    height: 80px;
-    background-color: rgb(0, 0, 0);
-    position: absolute;
-    border-radius: 15px;
-    bottom: 50px;
-    z-index: 0;
-    filter: blur(70px);
-}
-.image {
-    width: 380px;
-    height: 275px;
-    position: absolute;
-    top: 100px;
-    left: 310px;
-}
-.log a {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #ffffff;
-    text-decoration: none;
-    position: absolute;
-    top: 85px;
-    right: 610px;
-}
-.log a:hover {
-    transition: 12s all ease;
-    scale: 110%;
-}
-.wel {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #ffffff;
-    position: absolute;
-    font-size: x-large;
-    top: 372px;
-    left: 300px;
-}
-.tozih {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 12px;
-    color: #ffffff;
-    position: absolute;
-    top: 420px;
-    left: 305px;
-}
-.button-sign {
-    color: #ffffff;
-    background-color: #148af6;
-    position: absolute;
-    border-radius: 25px;
-    width: 120px;
-    height: 40px;
-    top: 475px;
-    left: 305px;
-    border: 1.5px solid rgb(53, 53, 53);
-}
-.button-sign:hover  {
-    transition: 4s all ease;
-    background-color: rgba(50, 50, 216, 0.863);
-    cursor: pointer;
-    scale: 110%;
+    background: linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgb(123, 131, 248) 100%);
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0 15px; /* کمی فاصله از لبه‌های صفحه در موبایل */
 }
 
-.h2-1 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 450;
+.music-player {
     display: flex;
     flex-direction: column;
-    align-items:center ;
-    justify-content: center;
-}
-.h4-1 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 11px;
-    font-weight: 450;
-    position: absolute;
-    left: 25px;
-    top: 240px;
-}
-h4 a {
-    text-decoration: none;
-    margin-left: 10px;
-}
-.login-input {
-    top: 200px;
-    right: 330px;
-    position: absolute;
+    align-items: center;
+    background: rgba(137, 138, 243, 0.993);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    
+    /* تغییر کلیدی: عرض واکنش‌گرا */
+    width: 100%; /* عرض کامل والد خود را بگیرد */
+    max-width: 380px; /* حداکثر عرض برای نمایش بهتر در تبلت و دسکتاپ */
 }
 
-.login-input .email {
-    padding: 8px;
-    margin-top: 20px;
-    border-radius: 10px;
+/* استایل عکس واکنش‌گرا */
+#albumArt {
+    width: 100%; /* عرض عکس به اندازه عرض والد خود باشد */
+    height: auto; /* ارتفاع به صورت خودکار تنظیم شود تا نسبت تصویر حفظ شود */
+    aspect-ratio: 1 / 1; /* نسبت تصویر را مربعی نگه می‌دارد */
+    border-radius: 15px;
+    object-fit: cover;
+    margin-bottom: 25px;
 }
-.login-input .pass {
-    padding: 8px;
-    margin-top: 8px;
-    border-radius: 10px;
-}
-.doc {
-    width: 189px;
-    padding: 10px;
-    border-radius: 10px;
-    color: #f7f9fb;
-    background: #1f6de9;
-    margin-top: 30px;
-    position: absolute;
-    border: 1.5px solid rgb(53, 53, 53);
 
+/* محفظه نوار پیشرفت */
+.progress-container {
+    width: 100%;
+    margin-bottom: 20px;
 }
-.login-input input {
-    outline: none;
-    background: transparent;
-    border: 1px solid rgb(150, 150, 150);
-}
-.doc:hover {
-    background-color: #0062ff93;
+
+#progressBar {
+    width: 100%;
+    height: 8px;
     cursor: pointer;
-    transition: 2s all ease;
-    scale: 104% ;
 }
-.doc:focus {
-    background-color: #1f6de9;
+
+.time-display {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 5px;
 }
-.Sign-blue {
-    color: blue;
+
+/* محفظه دکمه‌ها */
+.controls-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
-.Sign-blue:hover {
-    transition: 3s all ease;
-    scale: 150%;
-    color: #148af6;
+
+/* دکمه‌های با اندازه مناسب برای لمس */
+#playPauseBtn {
+    font-size: 1.8rem; /* کمی کوچک‌تر برای تناسب بهتر */
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
 }
-.circle {
-    width: 100px;
-    height: 100px;
-    bottom: 75px;
-    background: linear-gradient(to right top, #148af6, #c8e0f9);
-    position: absolute;
-    border-radius: 15px;
-    animation-name: move;
-    animation-duration: 12s;
-    animation-iteration-count: infinite;
-    z-index: 0;
+
+#playPauseBtn:hover {
+    background-color: #2f3ba3;
 }
-.morab {
-    width: 100px;
-    height: 100px;
-    bottom: 75px;
-    background: linear-gradient(to right top, #148af6, #c8e0f9);
-    position: absolute;
-    border-radius: 15px;
-    animation-name: mover;
-    animation-duration: 12s;
-    animation-iteration-count: infinite;
+
+#resetBtn {
+    padding: 12px 25px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #54c450;
+    color: white;
+    transition: background-color 0.3s;
 }
-@keyframes mover {
-    0% {
-        right: 200px;
-    }
-    50% {
-        right: 1060px;
-    } 
-    100% {
-        right: 200px;
-    }
+
+#resetBtn:hover {
+    background-color: #2f3ba3;
 }
